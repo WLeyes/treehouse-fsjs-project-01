@@ -52,7 +52,7 @@ var App = function (QuoteCtrl, UICtrl) {
       // Set Interval to rotate quotes every 3 seconds
       setInterval(function () {
         return QuoteCtrl.getRandomQuote();
-      }, 3000);
+      }, 10000);
     }
   };
 }(QuoteCtrl, UICtrl);
