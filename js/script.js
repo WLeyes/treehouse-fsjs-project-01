@@ -1,22 +1,24 @@
+'use strict';
+
 // FSJS - Random Quote Generator
 console.log('connected to scripts.js');
 
 // Create the array of quote objects and name it quotes:  you can find this in data/data.js
-const UICtrl = (() => {
+var UICtrl = function () {
   // Cenralized Selectors for the HTML markup
-  const UISelectors = {
+  var UISelectors = {
     quote: '.quote',
     source: '.source',
     citation: '.citation',
     year: '.year',
     quoteBox: '#quote-box',
     btn_loadQuote: '#loadQuote'
-  }
+  };
 
   return {
 
     // Create the printQuote funtion and name it printQuote
-    printQuote: () => {
+    printQuote: function printQuote() {
 
       // Get a random quote
       QuoteCtrl.getRandomQuote();
@@ -24,23 +26,24 @@ const UICtrl = (() => {
     },
 
     // used for mapping the selectors
-    getSelectors: () => UISelectors
-  }
-})()
+    getSelectors: function getSelectors() {
+      return UISelectors;
+    }
+  };
+}();
 
-const App = ((QuoteCtrl, UICtrl) => {
+var App = function (QuoteCtrl, UICtrl) {
   // load all event listeners
-  const loadEventListeners = () => {
+  var loadEventListeners = function loadEventListeners() {
 
     // Get UI selectors 
-    const UISelectors = UICtrl.getSelectors();
+    var UISelectors = UICtrl.getSelectors();
 
     // Listen for click event on .loadQuote Button
-    document.querySelector(UISelectors.btn_loadQuote)
-      .addEventListener('click', UICtrl.printQuote, false);
-  }
+    document.querySelector(UISelectors.btn_loadQuote).addEventListener('click', UICtrl.printQuote, false);
+  };
   return {
-    init: () => {
+    init: function init() {
       // Initialize a random quote
       QuoteCtrl.getRandomQuote();
 
@@ -48,10 +51,12 @@ const App = ((QuoteCtrl, UICtrl) => {
       loadEventListeners();
 
       // Set Interval to rotate quotes every 3 seconds
-      setInterval(() => QuoteCtrl.getRandomQuote(), 3000);
+      setInterval(function () {
+        return QuoteCtrl.getRandomQuote();
+      }, 3000);
     }
-  }
-})(QuoteCtrl, UICtrl)
+  };
+}(QuoteCtrl, UICtrl);
 
 // Ititialize App
 App.init();
