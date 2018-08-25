@@ -117,6 +117,11 @@ QuoteCtrl = (() => {
       ]
     }, // end quoteData
 
+    // Random background colors
+    colors: [
+      '#3F3EFF', '#3966E8', '#4BA8FF', '#39C1E8', '#3EFFF7', '#3628EF', '#FF5DEF', '#8747FE', '#088FFE', '#03A6CE'
+    ],
+
     // Create the getRandomQuuote function and name it getRandomQuote
     getRandomQuote: () => {
       QuoteCtrl.quoteData();
@@ -155,6 +160,7 @@ QuoteCtrl = (() => {
 
       // Replace innerHtml of #quote-box
       let output = `
+        <h1 class="category">Category: ${category}</h1>
         <p class="quote">${quote}</p>
         <p class="source">${source}<span class="citation">${citation}</span><span class="year">${year}</span></p>
       `

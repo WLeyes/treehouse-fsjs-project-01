@@ -20,7 +20,7 @@ const UICtrl = (() => {
 
       // Get a random quote
       QuoteCtrl.getRandomQuote();
-
+      document.body.style.backgroundColor = QuoteCtrl.colors[Math.floor(Math.random() * QuoteCtrl.colors.length)];
     },
 
     // used for mapping the selectors
@@ -43,8 +43,12 @@ const App = ((QuoteCtrl, UICtrl) => {
     init: () => {
       // Initialize a random quote
       QuoteCtrl.getRandomQuote();
+
       // Load event listeners
       loadEventListeners();
+
+      // Set Interval to rotate quotes every 3 seconds
+      setInterval(() => QuoteCtrl.getRandomQuote(), 3000);
     }
   }
 })(QuoteCtrl, UICtrl)
