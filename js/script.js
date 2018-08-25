@@ -49,7 +49,7 @@ var App = function (QuoteCtrl, UICtrl) {
       // Load event listeners
       loadEventListeners();
 
-      // Set Interval to rotate quotes every 3 seconds
+      // Set Interval to rotate quotes every 10 seconds
       setInterval(function () {
         return QuoteCtrl.getRandomQuote();
       }, 10000);
