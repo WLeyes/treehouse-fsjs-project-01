@@ -165,6 +165,7 @@ QuoteCtrl = (() => {
         <p class="source">${source}<span class="citation">${citation}</span><span class="year">${year}</span></p>
       `
       document.querySelector(UISelectors.quoteBox).innerHTML = output;
+      document.body.style.backgroundColor = QuoteCtrl.colors[Math.floor(Math.random() * QuoteCtrl.colors.length)];
     }
   }
 })();

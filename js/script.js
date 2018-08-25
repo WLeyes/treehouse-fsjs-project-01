@@ -22,7 +22,6 @@ var UICtrl = function () {
 
       // Get a random quote
       QuoteCtrl.getRandomQuote();
-      document.body.style.backgroundColor = QuoteCtrl.colors[Math.floor(Math.random() * QuoteCtrl.colors.length)];
     },
 
     // used for mapping the selectors
